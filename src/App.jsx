@@ -5,12 +5,13 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import './css/style.css';
+import '../src/assets/css/style.css';
 
 import './charts/ChartjsConfig';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
+import OnboardingForm from './pages/admin/employees/onboardingForm/onboardingForm';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/add-employee" element={<OnboardingForm />} />
       </Routes>
     </>
   );
