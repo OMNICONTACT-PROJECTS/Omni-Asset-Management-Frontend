@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 import SidebarLinkGroup from "./SidebarLinkGroup";
 
@@ -200,12 +200,16 @@ function Sidebar({
                         <ul className={`pl-8 mt-1 ${!open && "hidden"}`}>
                           <li className="mb-1 last:mb-0">
                               <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                                Onboarding
+                              <Link to="/add-employee" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              Onboarding
+                                </Link>
                               </span>
                           </li>
                           <li className="mb-1 last:mb-0">
                               <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              <Link to="/employeetable" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
                                 Users
+                                </Link>
                               </span>
                           </li>
                         </ul>
