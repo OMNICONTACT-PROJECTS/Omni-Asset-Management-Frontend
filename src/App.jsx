@@ -12,6 +12,7 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import OnboardingForm from './pages/admin/employees/onboardingForm/onboardingForm';
+import EmployeeTable from './pages/admin/employees/EmployeeTable';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
         <Route exact path="/add-employee" element={<OnboardingForm />} />
+        <Route exact path="/employeetable" element={<EmployeeTable/>} />
       </Routes>
     </>
   );
