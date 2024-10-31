@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import logo from '../assets/images/logo.png'
+import logo1 from '../assets/images/logo1.png'
+import logo2 from '../assets/images/logo2.png'
 
 import SidebarLinkGroup from "./SidebarLinkGroup";
 
@@ -59,10 +62,11 @@ function Sidebar({
 
       {/* Sidebar */}
       <div
-        id="sidebar"
-        ref={sidebar}
-        className={`flex lg:!flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-white dark:bg-gray-800 p-4 transition-all duration-200 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-64"} ${variant === 'v2' ? 'border-r border-gray-200 dark:border-gray-700/60' : 'rounded-r-2xl shadow-sm'}`}
-      >
+         id="sidebar"
+         ref={sidebar}
+         className={`flex lg:!flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh] overflow-y-scroll lg:overflow-y-auto no-scrollbar w-72 lg:w-24 lg:sidebar-expanded:!w-72 2xl:!w-72 shrink-0 bg-white dark:bg-gray-800 p-4 transition-all duration-200 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-64"} ${variant === 'v2' ? 'border-r border-gray-200 dark:border-gray-700/60' : ' shadow-sm'}`}
+>
+
         {/* Sidebar header */}
         <div className="flex justify-between pr-3 mb-10 sm:px-2">
           {/* Close button */}
@@ -80,11 +84,14 @@ function Sidebar({
           </button>
           
           {/* Logo */}
-          <NavLink end to="/" className="block">
-            <svg className="fill-violet-500" xmlns="http://www.w3.org/2000/svg" width={32} height={32}>
-              <path d="M31.956 14.8C31.372 6.92 25.08.628 17.2.044V5.76a9.04 9.04 0 0 0 9.04 9.04h5.716ZM14.8 26.24v5.716C6.92 31.372.63 25.08.044 17.2H5.76a9.04 9.04 0 0 1 9.04 9.04Zm11.44-9.04h5.716c-.584 7.88-6.876 14.172-14.756 14.756V26.24a9.04 9.04 0 0 1 9.04-9.04ZM.044 14.8C.63 6.92 6.92.628 14.8.044V5.76a9.04 9.04 0 0 1-9.04 9.04H.044Z" />
-            </svg>
-          </NavLink>
+            <NavLink end to="/" className="block">
+             <img 
+              src={logo1} 
+              alt="Logo" 
+              className="w-40 h-18" 
+            />
+             </NavLink>
+
         </div>
         
 
@@ -132,6 +139,61 @@ function Sidebar({
                   );
                 }}
               </SidebarLinkGroup>
+              
+              <SidebarLinkGroup activecondition={pathname.includes("job")}>
+                {(handleClick, open) => {
+                  return (
+                    <React.Fragment>
+                      <a
+                        href="#0"
+                        className={`block text-gray-800 dark:text-gray-100 truncate transition duration-150 ${
+                          pathname.includes("job") ? "" : "hover:text-gray-900 dark:hover:text-white"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleClick();
+                          setSidebarExpanded(true);
+                        }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <svg className={`shrink-0 fill-current ${pathname.includes('job') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                              <path d="M6.753 2.659a1 1 0 0 0-1.506-1.317L2.451 4.537l-.744-.744A1 1 0 1 0 .293 5.207l1.5 1.5a1 1 0 0 0 1.46-.048l3.5-4ZM6.753 10.659a1 1 0 1 0-1.506-1.317l-2.796 3.195-.744-.744a1 1 0 0 0-1.414 1.414l1.5 1.5a1 1 0 0 0 1.46-.049l3.5-4ZM8 4.5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1ZM9 11.5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" />
+                            </svg>
+                            <span className="ml-4 text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              Employee Management
+                            </span>
+                          </div>
+                          {/* Icon */}
+                          <div className="flex ml-2 shrink-0">
+                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 ${open && "rotate-180"}`} viewBox="0 0 12 12">
+                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
+                        <ul className={`pl-8 mt-1 ${!open && "hidden"}`}>
+                          <li className="mb-1 last:mb-0">
+                              <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              <Link to="/add-employee" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              Onboarding
+                                </Link>
+                              </span>
+                          </li>
+                          <li className="mb-1 last:mb-0">
+                              <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                              <Link to="/usertable" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                                Employees
+                                </Link>
+                              </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </React.Fragment>
+                  );
+                }}
+              </SidebarLinkGroup>
               {/* E-Commerce */}
               <SidebarLinkGroup activecondition={pathname.includes("ecommerce")}>
                 {(handleClick, open) => {
@@ -164,60 +226,6 @@ function Sidebar({
                 }} 
               </SidebarLinkGroup>
                 {/* Employee Managenment */}
-              <SidebarLinkGroup activecondition={pathname.includes("job")}>
-                {(handleClick, open) => {
-                  return (
-                    <React.Fragment>
-                      <a
-                        href="#0"
-                        className={`block text-gray-800 dark:text-gray-100 truncate transition duration-150 ${
-                          pathname.includes("job") ? "" : "hover:text-gray-900 dark:hover:text-white"
-                        }`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleClick();
-                          setSidebarExpanded(true);
-                        }}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <svg className={`shrink-0 fill-current ${pathname.includes('job') ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                              <path d="M6.753 2.659a1 1 0 0 0-1.506-1.317L2.451 4.537l-.744-.744A1 1 0 1 0 .293 5.207l1.5 1.5a1 1 0 0 0 1.46-.048l3.5-4ZM6.753 10.659a1 1 0 1 0-1.506-1.317l-2.796 3.195-.744-.744a1 1 0 0 0-1.414 1.414l1.5 1.5a1 1 0 0 0 1.46-.049l3.5-4ZM8 4.5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1ZM9 11.5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" />
-                            </svg>
-                            <span className="ml-4 text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                              User Management
-                            </span>
-                          </div>
-                          {/* Icon */}
-                          <div className="flex ml-2 shrink-0">
-                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500 ${open && "rotate-180"}`} viewBox="0 0 12 12">
-                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </a>
-                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                        <ul className={`pl-8 mt-1 ${!open && "hidden"}`}>
-                          <li className="mb-1 last:mb-0">
-                              <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                              <Link to="/add-employee" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                              Onboarding
-                                </Link>
-                              </span>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                              <span className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                              <Link to="/employeetable" className="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
-                                Users
-                                </Link>
-                              </span>
-                          </li>
-                        </ul>
-                      </div>
-                    </React.Fragment>
-                  );
-                }}
-              </SidebarLinkGroup>
               
               {/* Job Board */}
               <SidebarLinkGroup activecondition={pathname.includes("job")}>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Table } from 'flowbite-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faUserEdit, faPlus, faSort } from '@fortawesome/free-solid-svg-icons';
-import Sidebar from '../../../partials/Sidebar';
-import Header from '../../../partials/Header';
+import Sidebar from '../partials/Sidebar';
+import Header from '../partials/Header';
 
 function EmployeeTable() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -91,12 +91,12 @@ function EmployeeTable() {
 
   return (
     <div className="flex h-screen min-h-screen bg-gray-900">
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      {/* <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
       
       {/* Main content area */}
            <div className="flex flex-col w-full p-4 ml-4 space-y-4 bg-gray-800 rounded-lg shadow-lg">
         {/* Header Component */}
-        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} toggleTheme={toggleTheme} />
+        {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} toggleTheme={toggleTheme} /> */}
         {/* Top Controls (Filters and Search) */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <div className="flex gap-4">
@@ -196,51 +196,52 @@ function EmployeeTable() {
             <Table.Head className={theme === 'dark' ? 'bg-blue-700' : 'bg-blue-300'}>
               <Table.HeadCell
                 onClick={() => handleSort("firstName")}
-                className="font-semibold tracking-wider text-gray-200 uppercase cursor-pointer bg-gradient-to-r from-blue-600 to-blue-300"
+                className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase cursor-pointer bg-gradient-to-r from-blue-600 to-blue-300"
               >
                 First Name
                 <FontAwesomeIcon icon={faSort} className="ml-1" />
               </Table.HeadCell>
               <Table.HeadCell
                 onClick={() => handleSort("surname")}
-                className="font-semibold tracking-wider text-gray-200 uppercase cursor-pointer bg-gradient-to-r from-blue-600 to-blue-300"
+                className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase cursor-pointer bg-gradient-to-r from-blue-600 to-blue-300"
               >
                 Surname
                 <FontAwesomeIcon icon={faSort} className="ml-1" />
               </Table.HeadCell>
-              <Table.HeadCell className="font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Department</Table.HeadCell>
-              <Table.HeadCell className="tracking-wider text-gray-200 uppercase ffont-semibold bg-gradient-to-r from-blue-600 to-blue-300">Role</Table.HeadCell>
-              <Table.HeadCell className="font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">ID Number</Table.HeadCell>
-              <Table.HeadCell className="font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Nationality</Table.HeadCell>
-              <Table.HeadCell className="font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Province</Table.HeadCell>
-              <Table.HeadCell className="font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Actions</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Department</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 tracking-wider text-gray-200 uppercase ffont-semibold bg-gradient-to-r from-blue-600 to-blue-300">Role</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">ID Number</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Nationality</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Province</Table.HeadCell>
+              <Table.HeadCell className="px-4 py-2 font-semibold tracking-wider text-gray-200 uppercase bg-gradient-to-r from-blue-600 to-blue-300">Actions</Table.HeadCell>
             </Table.Head>
             <Table.Body className={theme === 'dark' ? 'divide-y divide-gray-700 bg-gray-800' : 'divide-y divide-gray-300 bg-white'}>
-              {filteredData.map((item, index) => (
-                <Table.Row key={index} className="bg-gray-800 hover:bg-gray-700">
-                  <Table.Cell>{item.firstName}</Table.Cell>
-                  <Table.Cell>{item.surname}</Table.Cell>
-                  <Table.Cell>{item.department}</Table.Cell>
-                  <Table.Cell>{item.role}</Table.Cell>
-                  <Table.Cell>{item.idNumber}</Table.Cell>
-                  <Table.Cell>{item.nationality}</Table.Cell>
-                  <Table.Cell>{item.province}</Table.Cell>
-                  <Table.Cell>
-                    <div className="flex justify-center">
-                      <button onClick={() => handleEdit(index)} className="text-blue-200 hover:text-blue-500" title="Edit Employee details">
-                        <FontAwesomeIcon icon={faEdit} />
-                      </button>
-                      <button onClick={() => handleDelete(index)} className="ml-2 text-red-200 hover:text-red-500" title="Delete Employee Details">
-                        <FontAwesomeIcon icon={faTrash} />
-                      </button>
-                      <button onClick={() => handleChangeRole(index)} className="ml-2 text-green-200 hover:text-green-500" title="Change Roles">
-                        <FontAwesomeIcon icon={faUserEdit} />
-                      </button>
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
+                  {filteredData.map((item, index) => (
+             <Table.Row key={index} className="bg-gray-800 hover:bg-gray-700">
+                   <Table.Cell className="px-4 py-2">{item.firstName}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.surname}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.department}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.role}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.idNumber}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.nationality}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">{item.province}</Table.Cell>
+                   <Table.Cell className="px-4 py-2">
+              <div className="flex justify-center">
+                 <button onClick={() => handleEdit(index)} className="text-blue-200 hover:text-blue-500" title="Edit Employee details">
+            <FontAwesomeIcon icon={faEdit} />
+                 </button>
+                 <button onClick={() => handleDelete(index)} className="ml-2 text-red-200 hover:text-red-500" title="Delete Employee Details">
+                 <FontAwesomeIcon icon={faTrash} />
+                 </button>
+                 <button onClick={() => handleChangeRole(index)} className="ml-2 text-green-200 hover:text-green-500" title="Change Roles">
+            <FontAwesomeIcon icon={faUserEdit} />
+          </button>
+        </div>
+      </Table.Cell>
+    </Table.Row>
+  ))}
+</Table.Body>
+
           </Table>
         </div>
       </div>
