@@ -11,8 +11,8 @@ import './charts/ChartjsConfig';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
-import OnboardingForm from './pages/admin/employees/onboardingForm/onboardingForm';
-import EmployeeTable from './pages/admin/employees/EmployeeTable';
+import UserTable from './pages/admin/employees/usertable';
+import OnBoardingForm from './pages/admin/employees/OnBoardingForm';
 
 function App() {
 
@@ -28,8 +28,8 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
-        <Route exact path="/add-employee" element={<OnboardingForm />} />
-        <Route exact path="/employeetable" element={<EmployeeTable/>} />
+        <Route exact path="/add-employee" element={<OnBoardingForm />} />
+        <Route exact path="/usertable" element={<UserTable/>} />
       </Routes>
     </>
   );
