@@ -6,20 +6,17 @@ body {
 .formContainer {
     /* background-color: #0442fa7f; */
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
     padding: 20px;
     width: 50vw;
     max-width: 600px;
     margin: auto;
     margin-top: 20px;
+    color: black;
 }
 
-.formContainer h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: #000000;
-    margin-bottom: 20px;
+.formContainer label {
+    color: white;
 }
 
 .registerForm {
