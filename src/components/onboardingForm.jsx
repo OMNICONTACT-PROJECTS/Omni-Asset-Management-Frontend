@@ -97,27 +97,26 @@ function OnboardingForm() {
 
   return (
     <div className="formContainer">
-      <h1>Onboarding Form</h1>
-      {errorMessage && <p className="error" style={{ color: 'red' }}>{errorMessage}</p>}
+      {errorMessage && <p className="error" style={{ color: '#900000' }}>{errorMessage}</p>}
       <form className="registerForm" onSubmit={handleSubmit}>
         <div>
-          <label>First Name <span style={{ color: 'red' }}>*</span></label>
+          <label>First Name <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="first_name" placeholder="Enter First Name" value={formData.first_name} onChange={handleChange} />
         </div>
         <div>
-          <label>Last Name <span style={{ color: 'red' }}>*</span></label>
+          <label>Last Name <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="last_name" placeholder="Enter Last Name" value={formData.last_name} onChange={handleChange} />
         </div>
         <div>
-          <label>Username <span style={{ color: 'red' }}>*</span></label>
+          <label>Username <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="username" placeholder="Enter Username" value={formData.username} onChange={handleChange} />
         </div>
         <div>
-          <label>Email <span style={{ color: 'red' }}>*</span></label>
+          <label>Email <span style={{ color: '#900000' }}>*</span></label>
           <input type="email" name="email" placeholder="Enter Email" value={formData.email} onChange={handleChange} />
         </div>
         <div>
-          <label>Role <span style={{ color: 'red' }}>*</span></label>
+          <label>Role <span style={{ color: '#900000' }}>*</span></label>
           <select name="role" value={formData.role} onChange={handleChange}>
             <option value="---">---</option>
             <option value="admin">Admin</option>
@@ -125,7 +124,7 @@ function OnboardingForm() {
           </select>
         </div>
         <div>
-          <label>Gender <span style={{ color: 'red' }}>*</span></label>
+          <label>Gender <span style={{ color: '#900000' }}>*</span></label>
           <select name="gender" value={formData.gender} onChange={handleChange}>
             <option value="---">---</option>
             <option value="male">Male</option>
@@ -133,23 +132,23 @@ function OnboardingForm() {
           </select>
         </div>
         <div>
-          <label>Company Email <span style={{ color: 'red' }}>*</span></label>
+          <label>Company Email <span style={{ color: '#900000' }}>*</span></label>
           <input type="email" name="company_email" placeholder="Enter Company Email" value={formData.company_email} onChange={handleChange} />
         </div>
         <div>
-          <label>Phone Number <span style={{ color: 'red' }}>*</span></label>
+          <label>Phone Number <span style={{ color: '#900000' }}>*</span></label>
           <input type="tel" name="phone_number" placeholder="Enter Phone Number" value={formData.phone_number} onChange={handleChange} />
         </div>
         <div>
-          <label>National ID <span style={{ color: 'red' }}>*</span></label>
+          <label>National ID <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="national_id" placeholder="Enter National ID" value={formData.national_id} onChange={handleChange} />
         </div>
         <div>
-          <label>Nationality <span style={{ color: 'red' }}>*</span></label>
+          <label>Nationality <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="nationality" placeholder="Enter Nationality" value={formData.nationality} onChange={handleChange} />
         </div>
         <div>
-          <label>Province <span style={{ color: 'red' }}>*</span></label>
+          <label>Province <span style={{ color: '#900000' }}>*</span></label>
           <select name="province" value={formData.province} onChange={handleChange}>
             <option value="---">---</option>
             <option value="province1">Harare</option>
@@ -159,19 +158,19 @@ function OnboardingForm() {
           </select>
         </div>
         <div>
-          <label>Home Address <span style={{ color: 'red' }}>*</span></label>
+          <label>Home Address <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="home_address" placeholder="Home Address" value={formData.home_address} onChange={handleChange} />
         </div>
         <div>
-          <label>Job Title <span style={{ color: 'red' }}>*</span></label>
+          <label>Job Title <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="job_title" placeholder="Enter Job Title" value={formData.job_title} onChange={handleChange} />
         </div>
         <div>
-          <label>Current Location <span style={{ color: 'red' }}>*</span></label>
+          <label>Current Location <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="current_location" placeholder="Enter current work station" value={formData.current_location} onChange={handleChange} />
         </div>
         <div>
-          <label>Department <span style={{ color: 'red' }}>*</span></label>
+          <label>Department <span style={{ color: '#900000' }}>*</span></label>
           <input type="text" name="department" placeholder="Enter Department" value={formData.department} onChange={handleChange} />
         </div>
         <div>
